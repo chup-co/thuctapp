@@ -4,7 +4,12 @@ import ListTask from "../body/list-task";
 import Checkcircle from "@/assets/images/input/check-circle.svg";
 import Image from "next/image";
 
-const page = () => {
+interface PageProps {
+  isSidebarVisible: boolean;
+  setSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const page = ({ isSidebarVisible, setSidebarVisible }: PageProps) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isMidVisible, setIsMidVisible] = useState(false);
 
@@ -13,7 +18,21 @@ const page = () => {
   };
 
   return (
-    <div className="basis-7/12 ">
+    <div className="basis-7/12  justify-items-center">
+      <div
+        className={!isSidebarVisible ? "inline-block" : "hidden"}
+        onClick={() => setSidebarVisible(true)}
+      >
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M19 4.001H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-12a2 2 0 0 0-2-2Zm-15 2a1 1 0 0 1 1-1h4v14H5a1 1 0 0 1-1-1v-12Zm6 13h9a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1h-9v14Z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+
       <div className="task-quantity">
         <span className="text-black font-semibold font-weight: 600 flex-grow">
           Today

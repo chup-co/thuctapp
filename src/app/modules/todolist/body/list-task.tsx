@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Trash from "@/assets/images/input/trash.svg";
 import Edit from "@/assets/images/input/edit-3.svg";
 import Image from "next/image";
+import { title } from "process";
 
 type TodoListEntity = {
   id: number;
@@ -42,6 +43,7 @@ const ListTask = () => {
 
   const handleEditTask = (id: number) => {
     setEditID(id);
+
   };
 
   const handleSaveTask = (id: number, updatedTitle: string) => {
@@ -82,3 +84,5 @@ const ListTask = () => {
 };
 
 export default ListTask;
+
+

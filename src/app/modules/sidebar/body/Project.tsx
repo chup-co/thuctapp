@@ -3,10 +3,14 @@
 import { useState } from "react";
 import Angledownsmall from "@/assets/images/input/angle-down-small.svg";
 import Image from "next/image";
-import ListProject from "./ListProject";
+import ListProject from "./list-project";
 
 const MyProjects = () => {
   const [isMidVisible, setIsMidVisible] = useState(false);
+
+  const toggleMidVisibility = () => {
+    setIsMidVisible(!isMidVisible);
+  }
 
   function setView(arg0: string): void {
     throw new Error("Function not implemented.");
@@ -26,7 +30,7 @@ const MyProjects = () => {
           />
           <div className="flex">
           <button onClick={() => setView("project")}> My Projects </button>
-          <button><Image src={Angledownsmall} alt="Angledownsmall" /></button>
+          <button className="arrow-down " onClick={toggleMidVisibility} ><Image src={Angledownsmall} alt="Angledownsmall" /></button>
           </div>
           
           <button
@@ -43,8 +47,10 @@ const MyProjects = () => {
               ></path>
             </svg>
           </button>
-        </div>
+        </div >
+        <div className={isMidVisible ? "block" : "hidden"}>
         <ListProject />
+        </div>
       </div>
     </div>
   );

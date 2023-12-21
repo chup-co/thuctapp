@@ -15,9 +15,9 @@ const Function = ({ isVisible }: { isVisible: boolean }) => {
 
   return (
     <div className={isVisible ? 'block' : 'hidden'}>
-    <div className="flex basis-10/12 gap-x-2 border-l-emerald-400">
+    <div className="flex basis-10/12 gap-x-2 bg-green-300 drop-shadow-lg">
       <table>
-        <div className="flex gap-36">
+        <div className="flex gap-40">
           <div>View</div>
           <a
             className="view-menu"
@@ -40,19 +40,19 @@ const Function = ({ isVisible }: { isVisible: boolean }) => {
             </svg>
           </a>
         </div>
-        <div className="flex gap-12">
-          <div className="flex ">
+        <div className=" gap-7 flex ">
+          <div className="flex outline outline-offset-2 outline-1">
             <Image src={list} alt="list" />
             <button onClick={() => setView("List")}> List </button>
           </div>
 
-          <div className="flex">
+          <div className="flex outline outline-offset-2 outline-1">
             <Image src={filelist} alt="filelist" />
             <button onClick={() => setView("board")}> Board </button>
           </div>
         </div>
 
-        <div className="flex gap-32">
+        <div className="flex gap-36">
           <div className="font-bold">Sort by</div>
           <a
             className="view-menu"
@@ -108,7 +108,7 @@ const Function = ({ isVisible }: { isVisible: boolean }) => {
             <option value="Workspace">Workspage</option>
           </select>
         </div>
-        <div className="flex gap-28">
+        <div className="flex gap-32">
           <div className="font-bold">Filter by </div>
           <a
             className="view-menu"

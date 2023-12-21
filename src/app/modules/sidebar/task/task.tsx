@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import AddTaskForm from "./addtask";
+import React, { FC, useState } from "react";
+
 import Button from "./button";
 import Image from "next/image";
 import Customgrid from "@/assets/images/input/custom-grid.svg";
@@ -9,19 +9,19 @@ import Add from "@/assets/images/input/plus-circle.svg";
 import Search from "@/assets/images/input/search.svg";
 import Inbox from "@/assets/images/input/chart-pyramid.svg";
 
-function Task() {
-  const [isOpen, setIsOpen] = useState(false);
+interface ITaskProps {
+  setIsOpenAddTask: () => void;
+  setIsOpenSearch: () => void;
+}
 
+const Task: FC<ITaskProps> = ({ setIsOpenAddTask, setIsOpenSearch }) => {
   return (
     <div className="flex flex-col items-start">
-      <Button
-        onClick={() => setIsOpen(true)}
-        className="bg-red-600 hover:bg-red-700"
-      >
+      <Button onClick={setIsOpenAddTask} className="bg-red-300">
         <Image src={Add} alt="Add" />
-        <span className="bg-red-600">Add Task</span>
+        <span>Add Task</span>
       </Button>
-      <Button>
+      <Button onClick={setIsOpenSearch}>
         <Image src={Search} alt="Search" />
         <div>Search</div>
       </Button>
@@ -54,9 +54,8 @@ function Task() {
         <Image src={Customgrid} className="bg-black" alt="Customgrid " />
         <div>Filters & Labels</div>
       </Button>
-      {isOpen && <AddTaskForm setIsOpen={setIsOpen} />}
     </div>
   );
-}
+};
 
 export default Task;
