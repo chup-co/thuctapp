@@ -6,7 +6,7 @@ import Image from "next/image";
 
 interface PageProps {
   isSidebarVisible: boolean;
-  setSidebarVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  setSidebarVisible:boolean;
 }
 
 const page = ({ isSidebarVisible, setSidebarVisible }: PageProps) => {

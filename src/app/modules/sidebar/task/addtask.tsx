@@ -4,14 +4,15 @@ import flagtriangle from "@/assets/images/input/flag-triangle.svg";
 import clock from "@/assets/images/input/clock.svg";
 import Image from "next/image";
 interface AddTaskFormProps {
-  setIsOpenTaskForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setAddTaskForm: () => void;
+  onSaveTask: (id: number, updatedTitle: string) => void;
 }
 
-function AddTaskForm({ setIsOpenTaskForm }: AddTaskFormProps) {
+const AddTaskForm: React.FC<AddTaskFormProps> = () => {
   const [taskName, setTaskName] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
-  const handleClose = () => setIsOpenTaskForm(false);
+  const handleClose = () => setIsOpenTaskForm();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,12 +29,13 @@ function AddTaskForm({ setIsOpenTaskForm }: AddTaskFormProps) {
     setDescription(e.target.value);
   };
 
+
   function setView(arg0: string): void {
     throw new Error("Function not implemented.");
   }
 
   return (
-    <div className=" absolute left-1/3 top-1/4 bg-green-200 drop-shadow-2xl w-80">
+    <div className=" absolute left-1/3 top-1/4 bg-green-100 drop-shadow-2xl w-80">
       <div className="header">
         <button className="close" onClick={handleClose}>
           &times;
@@ -69,7 +71,7 @@ function AddTaskForm({ setIsOpenTaskForm }: AddTaskFormProps) {
               <button className="">
                 <Image src={clipboard} alt="clipboard" />
               </button>
-              <button onClick={() => setView("duedate")}>Due Date</button>
+              <button onClick={() => setView("prority")}>Due Date</button>
             </div>
             <div className=" outline-offset-2 outline-1 bg-pink-200">
               <button>
@@ -86,15 +88,18 @@ function AddTaskForm({ setIsOpenTaskForm }: AddTaskFormProps) {
               <button onClick={() => setView("dot")}>...</button>
             </div>
           </div>
-          <div className="grid  bg-green-300 justify-end">
-            <button type="submit" className="btn btn-primary ">
-              Save
-            </button>
+          <div className="grid bg-green-100 justify-end">
+          <button type="submit">Save</button>
+   
           </div>
-        </form>
+         </form>
       </div>
     </div>
   );
 }
 
 export default AddTaskForm;
+function setIsOpenTaskForm() {
+  throw new Error("Function not implemented.");
+}
+

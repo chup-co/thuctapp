@@ -1,10 +1,10 @@
 "use client";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import Sidebar from "../modules/sidebar/page";
 import Page from "../modules/todolist/head/page";
 import View from "../modules/todolist/head/view";
 import AddTaskForm from "../modules/sidebar/task/addtask";
-import SearchTask from "../modules/sidebar/task/Search";
+import SearchTask from "../modules/sidebar/task/search";
 
 export default function TodoList() {
   const [isOpenTaskForm, setIsOpenTaskForm] = useState(false);

@@ -51,7 +51,7 @@ const task = () => {
         </li>
       ))}
 
-      <li className="flex items-center space-x-4 mt-4">
+      <div className="flex items-center space-x-4 mt-4">
         <span
           className="icon_add hover:cursor-pointer hover:bg-red-600 hover:text-white rounded-full"
           aria-hidden="true"
@@ -67,7 +67,7 @@ const task = () => {
         <span className="ml-2 text-gray-500 hover:text-red-600 hover:cursor-pointer">
           +Add task
         </span>
-      </li>
+      </div>
     </ul>
   );
 };

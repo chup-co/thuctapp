@@ -10,12 +10,10 @@ const Page = () => {
   };
 
   return (
-    <div className="pb-20 ">
-      <div className="flex items-center border-b py-1.5 border-b-gray-100">
-        
-      </div>
-      <div className={isMidVisible ? "block" : "hidden"}>
-        <ListTask />
+    <div className="pb-20 grid grid-rows-4">
+      
+      <div className={isMidVisible ? "block" : "hidden "}>
+        <ListTask/>
       </div>
     </div>
   );

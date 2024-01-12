@@ -5,6 +5,7 @@ import Calendar from "@/assets/images/input/calendar.svg";
 import Inbox from "@/assets/images/input/chart-pyramid.svg";
 import Home from "@/assets/images/input/home.svg";
 import Checkbox from "@/assets/images/input/check-circle.svg";
+import Customgrid from "@/assets/images/input/custom-grid.svg";
 import { FC, useEffect, useRef, useState } from "react";
 
 interface ISearchTaskProps {
@@ -15,7 +16,7 @@ const SearchTask: FC<ISearchTaskProps> = ({ setIsOpenSearch }) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: { target: any }) => {
       if (ref.current && !ref.current.contains(event.target)) {
         setIsOpenSearch && setIsOpenSearch();
       }
@@ -24,7 +25,7 @@ const SearchTask: FC<ISearchTaskProps> = ({ setIsOpenSearch }) => {
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
-  }, [setIsOpenSearch]); 
+  }, [setIsOpenSearch]);
 
   return (
     <div
@@ -60,7 +61,7 @@ const SearchTask: FC<ISearchTaskProps> = ({ setIsOpenSearch }) => {
           <button>Go to Home</button>
         </div>
         <div className="flex gap-1 text-xs">
-          <kbd className="bg-orange-100">Ctrl </kbd>
+          <kbd className="bg-orange-100 ">Ctrl </kbd>
           <kbd>then</kbd>
           <kbd className="bg-orange-100">H</kbd>
         </div>
@@ -83,7 +84,7 @@ const SearchTask: FC<ISearchTaskProps> = ({ setIsOpenSearch }) => {
           <button>
             <Image src={Calendar} alt="Calendar" />
           </button>
-          <button >Go to Today</button>
+          <button>Go to Today</button>
         </div>
         <div className="flex gap-1 text-xs">
           <kbd className="bg-orange-100">G </kbd>
@@ -120,16 +121,27 @@ const SearchTask: FC<ISearchTaskProps> = ({ setIsOpenSearch }) => {
       <div className="flex  justify-between">
         <div className="flex gap-4">
           <button>
-            <Image src={Checkbox} alt="Checkbox" />
+            <Image src={Customgrid} className="bg-black" alt="Customgrid " />
           </button>
-          <button>
-            Filters & Labels
-          </button>
+          <button>Filters & Labels</button>
         </div>
         <div className="flex gap-1 text-xs">
           <kbd className="bg-orange-100">G </kbd>
           <kbd>then</kbd>
           <kbd className="bg-orange-100">V</kbd>
+        </div>
+      </div>
+      <div className="flex  justify-between">
+        <div className="flex gap-4">
+          <button>
+            <Image src={Checkbox} alt="Checkbox" />
+          </button>
+          <button>Go to completed</button>
+        </div>
+        <div className="flex gap-1 text-xs">
+          <kbd className="bg-orange-100">G </kbd>
+          <kbd>then</kbd>
+          <kbd className="bg-orange-100">C</kbd>
         </div>
       </div>
     </div>

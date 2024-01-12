@@ -14,10 +14,10 @@ const Function = ({ isVisible }: { isVisible: boolean }) => {
   }
 
   return (
-    <div className={isVisible ? 'block' : 'hidden'}>
-    <div className="flex basis-10/12 gap-x-2 bg-green-300 drop-shadow-lg">
+    <div className={isVisible ? 'block' : 'hidden '}>
+    <div className="flex basis-10/12 gap-x-2 bg-blue-100 drop-shadow-lg outline outline-1">
       <table>
-        <div className="flex gap-40">
+        <div className="flex gap-40 grid-flow-dense">
           <div>View</div>
           <a
             className="view-menu"
@@ -151,7 +151,6 @@ const Function = ({ isVisible }: { isVisible: boolean }) => {
             <option value="null">All(Default)</option>
             <option value="Manual">My Projects</option>
           </select>
-       
         </div>
         </table>
     </div>
